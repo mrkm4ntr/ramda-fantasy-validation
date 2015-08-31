@@ -1,0 +1,20 @@
+{
+  "name": "ramda-validation",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "coffee -o dist/ -c src/Validation.coffee & uglifyjs -c -o dist/Validation.min.js dist/Validation.js",
+    "test": "mocha"
+  },
+  "author": "Shintaro Murakami <mrkm4ntr@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.17.1"
+  },
+  "devDependencies": {
+    "jsverify": "^0.7.1",
+    "mocha": "^2.3.0",
+    "uglify-js": "^2.4.24"
+  }
+}
