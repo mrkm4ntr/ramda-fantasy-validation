@@ -38,7 +38,7 @@ export default class Validation {
   }
   static liftAN(n, fn) {
     return R.curryN(n, function(...validations) {
-      return R.reduce((a1, a2) => a1.ap(a2), validations[0].map(R.curry(fn)), Array.prototype.slice.call(arguments, 1, n));
+      return R.reduce((a1, a2) => a1.ap(a2), R.head(validations).map(R.curry(fn)), R.tail(validations));
     });
   }
 }

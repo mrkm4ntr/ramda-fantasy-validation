@@ -82,7 +82,7 @@ var Validation = (function () {
 
         return R.reduce(function (a1, a2) {
           return a1.ap(a2);
-        }, validations[0].map(R.curry(fn)), Array.prototype.slice.call(arguments, 1, n));
+        }, R.head(validations).map(R.curry(fn)), R.tail(validations));
       });
     }
   }]);
