@@ -34,7 +34,7 @@ export default class Validation {
     return Validation.of(value);
   }
   static failure(value) {
-    return new Failure([value]);
+    return new Failure(value);
   }
   static liftAN(n, fn) {
     return R.curryN(n, function(...validations) {

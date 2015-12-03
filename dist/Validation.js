@@ -70,7 +70,7 @@ var Validation = (function () {
   }, {
     key: 'failure',
     value: function failure(value) {
-      return new Failure([value]);
+      return new Failure(value);
     }
   }, {
     key: 'liftAN',
