@@ -1,6 +1,8 @@
 ramda-fantasy-validation
 =============
 
+[![npm version](https://badge.fury.io/js/ramda-fantasy-validation.svg)](https://badge.fury.io/js/ramda-fantasy-validation)
+
 [Fantasy Land][1] compatible Validation with [Ramda][2].  
 
 [1]: https://github.com/fantasyland/fantasy-land
