@@ -1,11 +1,15 @@
 {
-  "name": "ramda-validation",
-  "version": "0.0.1",
-  "description": "",
+  "name": "ramda-fantasy-validation",
+  "version": "0.1.0",
+  "description": "Fantasy Land compatible Validation with Ramda.",
   "main": "index.js",
   "scripts": {
     "build": "babel src/Validation.js -o dist/Validation.js & uglifyjs -c -o dist/Validation.min.js dist/Validation.js",
     "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrkm4ntr/ramda-fantasy-validation.git"
   },
   "author": "Shintaro Murakami <mrkm4ntr@gmail.com>",
   "license": "MIT",

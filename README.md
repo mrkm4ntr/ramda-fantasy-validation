@@ -1,4 +1,4 @@
-ramda-validation
+ramda-fantasy-validation
 =============
 
 [Fantasy Land][1] compatible Validation with [Ramda][2].  
@@ -10,7 +10,7 @@ Example
 --------
 
 ```js
-var Validation = require('ramda-validation');
+var Validation = require('ramda-fantasy-validation');
 var R = require('ramda');
 
 function validateName(name) {
