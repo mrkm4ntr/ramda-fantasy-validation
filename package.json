@@ -1,6 +1,6 @@
 {
   "name": "ramda-fantasy-validation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fantasy Land compatible Validation with Ramda.",
   "main": "index.js",
   "scripts": {
