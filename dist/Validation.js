@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _ramda = require('ramda');
 
@@ -18,7 +18,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Validation = (function () {
+var Validation = function () {
   function Validation(value) {
     _classCallCheck(this, Validation);
 
@@ -88,17 +88,17 @@ var Validation = (function () {
   }]);
 
   return Validation;
-})();
+}();
 
 exports.default = Validation;
 
-var Success = (function (_Validation) {
+var Success = function (_Validation) {
   _inherits(Success, _Validation);
 
   function Success(x) {
     _classCallCheck(this, Success);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Success).call(this, x));
+    return _possibleConstructorReturn(this, (Success.__proto__ || Object.getPrototypeOf(Success)).call(this, x));
   }
 
   _createClass(Success, [{
@@ -117,6 +117,11 @@ var Success = (function (_Validation) {
       return fn(this.value);
     }
   }, {
+    key: 'toPromise',
+    value: function toPromise() {
+      return Promise.resolve(this.value);
+    }
+  }, {
     key: 'toString',
     value: function toString() {
       return 'Validation.Success(' + R.toString(this.value) + ')';
@@ -129,21 +134,26 @@ var Success = (function (_Validation) {
   }]);
 
   return Success;
-})(Validation);
+}(Validation);
 
-var Failure = (function (_Validation2) {
+var Failure = function (_Validation2) {
   _inherits(Failure, _Validation2);
 
   function Failure(x) {
     _classCallCheck(this, Failure);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Failure).call(this, x));
+    return _possibleConstructorReturn(this, (Failure.__proto__ || Object.getPrototypeOf(Failure)).call(this, x));
   }
 
   _createClass(Failure, [{
     key: 'ap',
     value: function ap(that) {
       return that.isSuccess ? this : new Failure(this.value.concat(that.value));
+    }
+  }, {
+    key: 'toPromise',
+    value: function toPromise() {
+      return Promise.reject(new Error(R.toString(this.value)));
     }
   }, {
     key: 'toString',
@@ -158,4 +168,4 @@ var Failure = (function (_Validation2) {
   }]);
 
   return Failure;
-})(Validation);
+}(Validation);

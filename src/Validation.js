@@ -59,6 +59,9 @@ class Success extends Validation {
   get isSuccess() {
     return true;
   }
+  toPromise() {
+    return Promise.resolve(this.value);
+  }
   toString() {
     return `Validation.Success(${R.toString(this.value)})`;
   }
@@ -73,6 +76,9 @@ class Failure extends Validation {
   }
   get isFailure() {
     return true;
+  }
+  toPromise() {
+    return Promise.reject(new Error(R.toString(this.value)));
   }
   toString() {
     return `Validation.Failure(${R.toString(this.value)})`

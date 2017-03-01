@@ -56,6 +56,27 @@ describe('Validation', function() {
     }
   );
 
+  it('can be converted to Promise', function() {
+    var value = 1;
+    Validation.of(value)
+      .toPromise()
+      .then(function(v) {
+        assert(v === value);
+      })
+      .catch(function() {
+        assert.fail();
+      });
+
+    Validation.failure([value])
+      .toPromise()
+      .then(function() {
+        assert.fail();
+      })
+      .catch(function(e) {
+        assert(e.message === R.toString([value]));
+      });
+  });
+
   // TODO
   // jsc.property("is not a Chain");
 });
