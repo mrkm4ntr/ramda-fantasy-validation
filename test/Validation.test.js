@@ -56,6 +56,22 @@ describe('Validation', function() {
     }
   );
 
+  it('can fold functions', function() {
+    var value = 1;
+    Validation.of(value)
+      .fold(function(v) {
+        assert(v === value);
+      }, function(e) {
+        assert.fail();
+      });
+    Validation.failure([value])
+      .fold(function(v) {
+        assert.fail();
+      }, function(e) {
+        assert(R.equals(e, [value]));
+      });
+  });
+
   it('can be converted to Promise', function() {
     var value = 1;
     Validation.of(value)
