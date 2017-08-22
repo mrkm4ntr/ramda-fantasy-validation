@@ -1,6 +1,7 @@
 ramda-fantasy-validation
 =============
 
+[![Build Status](https://travis-ci.org/mrkm4ntr/ramda-fantasy-validation.svg?branch=master)](https://travis-ci.org/mrkm4ntr/ramda-fantasy-validation)
 [![npm version](https://badge.fury.io/js/ramda-fantasy-validation.svg)](https://badge.fury.io/js/ramda-fantasy-validation)
 
 [Fantasy Land][1] compatible Validation with [Ramda][2].  
@@ -35,7 +36,7 @@ function createUser(name, age) {
 
 // Validation.Success({"age": 99, "name": "mrkm4ntr"})
 validateName('mrkm4ntr').map(R.curry(createUser)).ap(validateAge(99));
-// or 
+// or
 Validation.liftAN(2, createUser)(validateName('mrkm4ntr'))(validateAge(99));
 
 // Validation can accumulate error informations.
