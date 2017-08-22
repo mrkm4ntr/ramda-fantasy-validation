@@ -24,7 +24,7 @@ export default class Validation {
   }
 
   fold(f1, f2) {
-    return this.success ? f1(this.value) : f2(this.value);
+    return this.isSuccess ? f1(this.value) : f2(this.value);
   }
 
   static of(value) {
